@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himmat Rana</title>
+    <meta name="description"
+        content="Welcome to Himmat Rana's personal portfolio. Sharing the latest in software engineering, tech, coding, and developer hacks.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-bg"></div>
+        <div class="preloader-text">
+            <span class="word">HIMMAT.</span>
+        </div>
+        <div class="preloader-line"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="header"
+        style="opacity: 1 !important; visibility: visible !important; display: block !important; z-index: 900 !important;">
+        <div class="header-container">
+            <a href="#home" class="logo magnetic" id="logo-link">Himmat Rana<span>.</span></a>
+            <nav class="nav">
+                <a href="#home" class="nav-link magnetic active" id="nav-home">Home</a>
+                <a href="#story" class="nav-link magnetic" id="nav-story">Journey</a>
+                <a href="#projects" class="nav-link magnetic" id="nav-projects">Projects</a>
+                <a href="#words" class="nav-link magnetic" id="nav-words">Words</a>
+                <a href="#contact" class="nav-link magnetic" id="nav-contact">Contact</a>
+            </nav>
+            <div class="menu-btn magnetic" id="menu-toggle">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-links">
+            <a href="#home" class="mobile-link">Home</a>
+            <a href="#story" class="mobile-link">Journey</a>
+            <a href="#projects" class="mobile-link">Projects</a>
+            <a href="#words" class="mobile-link">Words</a>
+            <a href="#contact" class="mobile-link">Contact</a>
+        </div>
+    </div>
+
+    <!-- Social Vertical Bar -->
+    <aside class="social-sidebar">
+        <div class="social-links-wrapper">
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@himmatr721" target="_blank" class="social-icon-btn magnetic"
+                id="social-youtube" aria-label="YouTube">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507A3.002 3.002 0 0 0 .502 6.163C0 8.07 0 12 0 12s0 3.93.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.387.507 9.387.507s7.517 0 9.387-.507a3.002 3.002 0 0 0 2.11-2.11C24 15.93 24 12 24 12s0-3.93-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/himmatr_/" target="_blank" class="social-icon-btn magnetic"
+                id="social-instagram" aria-label="Instagram">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                </svg>
+            </a>
+            <!-- Twitter / X -->
+            <a href="https://x.com/HimmatRana721_" target="_blank" class="social-icon-btn magnetic" id="social-twitter"
+                aria-label="Twitter">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M23.953 4.57a10 10 0 0 1-2.825.775 4.958 4.958 0 0 0 2.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 0 0-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 0 0-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 0 1-2.228-.616v.06a4.923 4.923 0 0 0 3.946 4.827 4.996 4.996 0 0 1-2.212.085 4.936 4.936 0 0 0 4.604 3.417 9.867 9.867 0 0 1-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 0 0 7.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0 0 24 4.59z" />
+                </svg>
+            </a>
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/himmat.rana.774288" target="_blank" class="social-icon-btn magnetic"
+                id="social-facebook" aria-label="Facebook">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/himmat-rana-1ab747279/" target="_blank"
+                class="social-icon-btn magnetic" id="social-linkedin" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                </svg>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Container -->
+    <main>
+        <!-- HOME SECTION -->
+        <section id="home" class="hero-section">
+            <div class="hero-bg-canvas">
+                <div class="glow-orb orb-1"></div>
+                <div class="glow-orb orb-2"></div>
+            </div>
+
+            <div class="hero-wrapper">
+                <!-- Portrait Image Container -->
+                <div class="hero-image-container">
+                    <img src="assets/himmat_pool.png" alt="Himmat Rana Portrait" class="hero-image"
+                        id="hero-himmat-img">
+                    <div class="hero-image-overlay"></div>
+                </div>
+
+                <!-- Text Overlay Content -->
+                <div class="hero-content">
+                    <div class="hero-title-wrapper">
+                        <h1 class="hero-title" id="hero-title-text">HIMMAT RANA</h1>
+                    </div>
+                    <div class="hero-line" id="hero-line-sep"></div>
+                    <p class="hero-subtitle" id="hero-subtitle-text">Writing About Tech, Coding, Open Source & My
+                        Journey!</p>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <a href="#story" class="scroll-indicator magnetic" id="scroll-btn">
+                <span class="scroll-text">Explore</span>
+                <span class="scroll-line"></span>
+            </a>
+        </section>
+
+        <!-- STORY SECTION -->
+        <section id="story" class="story-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag" id="story-tag">My Journey</span>
+                    <h2 class="section-title" id="story-title">How It All Started</h2>
+                    <p class="section-desc">A peek into my path from writing simple scripts to sharing my coding journey
+                        with global developers.</p>
+                </div>
+
+                <!-- Timeline -->
+                <div class="timeline-container">
+                    <div class="timeline-progress-line">
+                        <div class="timeline-progress-bar"></div>
+                    </div>
+
+                    <div class="timeline-nodes">
+                        <!-- Node 1 -->
+                        <div class="timeline-node">
+                            <div class="timeline-node-dot"></div>
+                            <div class="timeline-node-content">
+                                <span class="timeline-year">2022</span>
+                                <h3 class="timeline-node-title">Completed +2 Science</h3>
+                                <p class="timeline-node-desc">Successfully completed my +2 high school education in Science stream, laying a strong foundation in logical problem-solving, mathematics, and technical curiosity.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Node 2 -->
+                        <div class="timeline-node">
+                            <div class="timeline-node-dot"></div>
+                            <div class="timeline-node-content">
+                                <span class="timeline-year">2023</span>
+                                <h3 class="timeline-node-title">Joined B.Sc. in Computer Science & Technology</h3>
+                                <p class="timeline-node-desc">Enrolled in the Bachelor in Science in Computer Science and Technology program, immersing myself in computer science fundamentals, algorithms, and software development.</p>
+                            </div>
+                        </div>
+
+                        <!-- Node 3 -->
+                        <div class="timeline-node">
+                            <div class="timeline-node-dot"></div>
+                            <div class="timeline-node-content">
+                                <span class="timeline-year">Dec 2025</span>
+                                <h3 class="timeline-node-title">Joined as QA at eAcademy Nepal</h3>
+                                <p class="timeline-node-desc">Started my role as Quality Assurance (QA) Engineer at eAcademy Nepal, ensuring high software quality, executing test suites, and delivering reliable educational technology platforms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="life-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag" id="projects-tag">View My Work</span>
+                    <h2 class="section-title" id="projects-title">My Coding Projects</h2>
+                    <p class="section-desc">Check out the tools, software, and applications I've built and open-source
+                        contributions.</p>
+                </div>
+
+                <div class="life-masonry">
+                    <!-- Masonry Item 1 -->
+                    <div class="life-card life-card-large">
+
+                        <div class="life-card-content">
+                            <span class="life-card-badge">Coding</span>
+                            <h3 class="life-card-title">Choosing the Right Tech Stack for Your Project</h3>
+                            <p class="life-card-text">A comprehensive breakdown of React, Vue, and Angular and how they
+                                influence application architecture.</p>
+                            <a href="#projects" class="life-card-link magnetic">Read Article <span
+                                    class="arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Masonry Item 2 -->
+                    <div class="life-card">
+                        <div class="life-card-content-only">
+                            <span class="life-card-badge">Focus</span>
+                            <h3 class="life-card-title">My 3 Rules for Deep Work</h3>
+                            <p class="life-card-text">The exact pre-coding visualization routine I use to clear my mind
+                                and stay focused during long debugging sessions.</p>
+                            <a href="#projects" class="life-card-link magnetic">Read Article <span
+                                    class="arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Masonry Item 3 -->
+                    <div class="life-card">
+                        <div class="life-card-content-only">
+                            <span class="life-card-badge">Tech</span>
+                            <h3 class="life-card-title">Open Source Etiquette</h3>
+                            <p class="life-card-text">Essential rules of respect, issue tracking, and contribution
+                                guidelines when contributing to major repos.</p>
+                            <a href="#projects" class="life-card-link magnetic">Read Article <span
+                                    class="arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Masonry Item 4 -->
+                    <div class="life-card life-card-medium">
+
+                        <div class="life-card-content">
+                            <span class="life-card-badge">Career</span>
+                            <h3 class="life-card-title">Pre-Interview Technical Warmups</h3>
+                            <p class="life-card-text">What happened when I added 15 minutes of algorithmic problem
+                                solving before every technical interview.</p>
+                            <a href="#projects" class="life-card-link magnetic">Read Article <span
+                                    class="arrow">&rarr;</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WORDS SECTION -->
+        <section id="words" class="projects-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag" id="words-tag">Creative Writing</span>
+                    <h2 class="section-title" id="words-title">Poems & Novels</h2>
+                    <p class="section-desc">A collection of my personal written poems, novel excerpts, and creative
+                        literature.</p>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projects-posts-grid">
+                    <!-- Writing Item 1 -->
+                    <div class="project-card" data-category="poem">
+
+                        <div class="project-meta">
+                            <span class="project-category">Poem</span>
+                            <span class="project-date">Aug 10, 2026</span>
+                        </div>
+                        <h3 class="project-card-title">Echoes in the Quiet Midnight</h3>
+                        <p class="project-card-desc">A poem exploring quiet contemplation, late-night thoughts, and the
+                            rhythmic symmetry of creation.</p>
+                    </div>
+
+                    <!-- Writing Item 2 -->
+                    <div class="project-card" data-category="novel">
+
+                        <div class="project-meta">
+                            <span class="project-category">Novel Excerpt</span>
+                            <span class="project-date">Jul 30, 2026</span>
+                        </div>
+                        <h3 class="project-card-title">The Whispering Horizon — Chapter I</h3>
+                        <p class="project-card-desc">An opening chapter snippet from my fiction novel project exploring
+                            human connections and distant journeys.</p>
+                    </div>
+
+                    <!-- Writing Item 3 -->
+                    <div class="project-card" data-category="prose">
+
+                        <div class="project-meta">
+                            <span class="project-category">Personal Essay</span>
+                            <span class="project-date">Jul 14, 2026</span>
+                        </div>
+                        <h3 class="project-card-title">Solitude, Ink, and Silent Thoughts</h3>
+                        <p class="project-card-desc">Reflections on finding poetry in everyday chaos, personal growth,
+                            and the quiet freedom of writing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="contact-section">
+            <div class="section-container">
+                <div class="contact-layout">
+                    <!-- Left column -->
+                    <div class="contact-info">
+                        <span class="section-tag" id="contact-tag">Let's Connect</span>
+                        <h2 class="section-title" id="contact-title">Get In Touch</h2>
+                        <p class="contact-desc">I am always active on GitHub and social media! Come say hi, see
+                            behind-the-scenes code snippets, or join our developer community discussions.</p>
+
+                        <div class="dummy-contact" style="margin-top: 40px;">
+                            <div style="margin-bottom: 20px;">
+                                <h4
+                                    style="color: var(--color-accent); font-family: var(--font-heading); font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px;">
+                                    Email</h4>
+                                <p style="color: var(--color-text-white); font-size: 18px;"><a
+                                        href="mailto:himmatrana49@gmail.com"
+                                        style="color: inherit; text-decoration: none;">himmatrana49@gmail.com</a></p>
+                            </div>
+                            <div>
+                                <h4
+                                    style="color: var(--color-accent); font-family: var(--font-heading); font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 5px;">
+                                    Address</h4>
+                                <p style="color: var(--color-text-white); font-size: 18px;">Butwal, Rupandehi, Nepal</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right column -->
+                    <div class="contact-form-container">
+                        <h3 class="form-heading">Send Me a Message</h3>
+                        <form id="contact-form" class="contact-form" action="https://formsubmit.co/himmatrana49@gmail.com" method="POST">
+                            <!-- Honeypot Bot Trap -->
+                            <input type="text" name="_honey" style="display:none">
+                            <div class="form-group">
+                                <input type="text" id="form-name" name="name" required>
+                                <label for="form-name">Full Name</label>
+                                <span class="line"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="form-email" name="email" required>
+                                <label for="form-email">Email Address</label>
+                                <span class="line"></span>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="form-message" name="message" rows="4" required></textarea>
+                                <label for="form-message">Your Message</label>
+                                <span class="line"></span>
+                            </div>
+                            <!-- Security Captcha -->
+                            <div class="form-group captcha-group" style="margin-bottom: 25px;">
+                                <label for="form-captcha" style="position: relative; transform: none; top: 0; left: 0; font-size: 13px; color: var(--color-accent); font-weight: 600; display: block; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em;">
+                                    Check: <span id="captcha-question" style="color: #ffffff; font-weight: 700;"></span>
+                                </label>
+                                <input type="number" id="form-captcha" required placeholder="Enter answer">
+                                <span class="line"></span>
+                            </div>
+                            <button type="submit" class="contact-submit-btn magnetic" id="submit-message-btn">
+                                <span>Send Message</span>
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Himmat Rana. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#home" class="magnetic">Back to Top</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
