@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <rect width="512" height="512" rx="96" fill="#09090b"/>
+  <g fill="none" stroke="#ffffff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
+    <!-- H left stem -->
+    <path d="M 130 360 L 220 150" />
+    <!-- H crossbar extending into H right stem -->
+    <path d="M 110 260 L 260 260 L 190 360 L 280 150" />
+    <!-- R loop flowing into signature tail -->
+    <path d="M 280 150 C 360 150 380 235 305 260 C 330 265 350 300 450 300" />
+  </g>
+</svg>
