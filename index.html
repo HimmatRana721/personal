@@ -39,6 +39,7 @@
                 <a href="#home" class="nav-link magnetic active" id="nav-home">Home</a>
                 <a href="#story" class="nav-link magnetic" id="nav-story">Journey</a>
                 <a href="#projects" class="nav-link magnetic" id="nav-projects">Projects</a>
+                <a href="#articles" class="nav-link magnetic" id="nav-articles">Articles</a>
                 <a href="#words" class="nav-link magnetic" id="nav-words">Words</a>
                 <a href="#contact" class="nav-link magnetic" id="nav-contact">Contact</a>
             </nav>
@@ -55,6 +56,7 @@
             <a href="#home" class="mobile-link">Home</a>
             <a href="#story" class="mobile-link">Journey</a>
             <a href="#projects" class="mobile-link">Projects</a>
+            <a href="#articles" class="mobile-link">Articles</a>
             <a href="#words" class="mobile-link">Words</a>
             <a href="#contact" class="mobile-link">Contact</a>
         </div>
@@ -194,63 +196,95 @@
         </section>
 
         <!-- PROJECTS SECTION -->
-        <section id="projects" class="life-section">
+        <section id="projects" class="projects-section">
             <div class="section-container">
                 <div class="section-header">
                     <span class="section-tag" id="projects-tag">View My Work</span>
                     <h2 class="section-title" id="projects-title">My Coding Projects</h2>
-                    <p class="section-desc">Check out the tools, software, and applications I've built and open-source
-                        contributions.</p>
+                    <p class="section-desc">Check out the tools, software applications, and open-source systems I've built.</p>
+                </div>
+
+                <div class="projects-grid" id="coding-projects-grid">
+                    <!-- Project Card 1 -->
+                    <div class="project-card">
+                        <div class="project-meta">
+                            <span class="project-category">QA & Automation</span>
+                            <span class="project-date">2026</span>
+                        </div>
+                        <h3 class="project-card-title">eAcademy Test Automation Engine</h3>
+                        <p class="project-card-desc">End-to-end automated testing framework and API reliability suite engineered for eAcademy Nepal's learning platform.</p>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="project-card">
+                        <div class="project-meta">
+                            <span class="project-category">Web Development</span>
+                            <span class="project-date">2026</span>
+                        </div>
+                        <h3 class="project-card-title">Personal Developer Portfolio</h3>
+                        <p class="project-card-desc">High-performance dark-themed portfolio website built with HTML5, CSS3, GSAP micro-animations, and dynamic UI physics.</p>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="project-card">
+                        <div class="project-meta">
+                            <span class="project-category">Developer Tools</span>
+                            <span class="project-date">2025</span>
+                        </div>
+                        <h3 class="project-card-title">DevTools Project Scaffolder</h3>
+                        <p class="project-card-desc">A lightweight developer utility CLI built in JavaScript/Node.js to streamline setup workflows and repo scaffolding.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARTICLES SECTION -->
+        <section id="articles" class="life-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag" id="articles-tag">Tech & Insights</span>
+                    <h2 class="section-title" id="articles-title">Published Articles</h2>
+                    <p class="section-desc">Read my latest guides, tech stack breakdowns, and engineering perspectives on software development.</p>
                 </div>
 
                 <div class="life-masonry">
-                    <!-- Masonry Item 1 -->
+                    <!-- Masonry Article 1 -->
                     <div class="life-card life-card-large">
-
                         <div class="life-card-content">
-                            <span class="life-card-badge">Coding</span>
-                            <h3 class="life-card-title">Choosing the Right Tech Stack for Your Project</h3>
-                            <p class="life-card-text">A comprehensive breakdown of React, Vue, and Angular and how they
-                                influence application architecture.</p>
-                            <a href="#projects" class="life-card-link magnetic">Read Article <span
-                                    class="arrow">&rarr;</span></a>
+                            <span class="life-card-badge">Coding & Architecture</span>
+                            <h3 class="life-card-title"><a href="tech-stack.html" target="_blank" style="color: inherit; text-decoration: none;">Choosing the Right Tech Stack for Your Project</a></h3>
+                            <p class="life-card-text">A grounded, hype-free guide on how to choose the right tech stack, balance developer velocity, and avoid architectural over-engineering.</p>
+                            <a href="tech-stack.html" target="_blank" class="life-card-link magnetic">Read Article <span class="arrow">&rarr;</span></a>
                         </div>
                     </div>
 
-                    <!-- Masonry Item 2 -->
+                    <!-- Masonry Article 2 -->
                     <div class="life-card">
                         <div class="life-card-content-only">
-                            <span class="life-card-badge">Focus</span>
+                            <span class="life-card-badge">Focus & Productivity</span>
                             <h3 class="life-card-title">My 3 Rules for Deep Work</h3>
-                            <p class="life-card-text">The exact pre-coding visualization routine I use to clear my mind
-                                and stay focused during long debugging sessions.</p>
-                            <a href="#projects" class="life-card-link magnetic">Read Article <span
-                                    class="arrow">&rarr;</span></a>
+                            <p class="life-card-text">The exact pre-coding visualization routine I use to clear my mind and stay focused during long debugging sessions.</p>
+                            <a href="#articles" class="life-card-link magnetic">Read Article <span class="arrow">&rarr;</span></a>
                         </div>
                     </div>
 
-                    <!-- Masonry Item 3 -->
+                    <!-- Masonry Article 3 -->
                     <div class="life-card">
                         <div class="life-card-content-only">
-                            <span class="life-card-badge">Tech</span>
+                            <span class="life-card-badge">Open Source</span>
                             <h3 class="life-card-title">Open Source Etiquette</h3>
-                            <p class="life-card-text">Essential rules of respect, issue tracking, and contribution
-                                guidelines when contributing to major repos.</p>
-                            <a href="#projects" class="life-card-link magnetic">Read Article <span
-                                    class="arrow">&rarr;</span></a>
+                            <p class="life-card-text">Essential rules of respect, issue tracking, and contribution guidelines when contributing to major repos.</p>
+                            <a href="#articles" class="life-card-link magnetic">Read Article <span class="arrow">&rarr;</span></a>
                         </div>
                     </div>
 
-                    <!-- Masonry Item 4 -->
+                    <!-- Masonry Article 4 -->
                     <div class="life-card life-card-medium">
-
                         <div class="life-card-content">
                             <span class="life-card-badge">Career</span>
                             <h3 class="life-card-title">Pre-Interview Technical Warmups</h3>
-                            <p class="life-card-text">What happened when I added 15 minutes of algorithmic problem
-                                solving before every technical interview.</p>
-                            <a href="#projects" class="life-card-link magnetic">Read Article <span
-                                    class="arrow">&rarr;</span></a>
+                            <p class="life-card-text">What happened when I added 15 minutes of algorithmic problem solving before every technical interview.</p>
+                            <a href="#articles" class="life-card-link magnetic">Read Article <span class="arrow">&rarr;</span></a>
                         </div>
                     </div>
                 </div>
