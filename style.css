@@ -1250,6 +1250,10 @@ section {
 /* ==========================================================================
    ARTICLE PAGE STYLES
    ========================================================================== */
+body.article-page .social-sidebar {
+    display: none !important;
+}
+
 .article-section {
     padding: 140px 0 100px 0;
     min-height: 100vh;
@@ -1258,9 +1262,9 @@ section {
 
 .article-container {
     width: 90%;
-    max-width: 860px;
+    max-width: 800px;
     margin: 0 auto;
-    padding-left: 0;
+    padding: 0 15px;
 }
 
 .article-back-btn {
@@ -1413,4 +1417,25 @@ section {
     color: var(--color-text-gray);
     line-height: 1.5;
 }
+
+.article-author-socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+.article-social-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    transition: var(--transition-fast);
+}
+
+.article-social-link:hover {
+    color: var(--color-accent-hover);
+    transform: translateX(2px);
+}
+
 
