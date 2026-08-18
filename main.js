@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initProjectFilters();
     initFormInteractions();
     initDynamicCardInteractions();
+    initPageTransitions();
 
     // Run preloader timeline
     runPreloader();
@@ -539,20 +540,21 @@ function initDynamicCardInteractions() {
                     // Set clicked card to active
                     card.classList.add('is-active');
 
-                    // If user clicked directly on an <a> tag, native link behavior takes place.
-                    // If user clicked elsewhere on the card surface, navigate to the card's target link.
+                    // Handle card surface click transition
                     const clickedLink = e.target.closest('a');
                     if (!clickedLink) {
                         const cardLink = card.querySelector('a[href]');
                         if (cardLink) {
                             const href = cardLink.getAttribute('href');
                             const target = cardLink.getAttribute('target');
-                            if (href && !href.startsWith('#')) {
-                                if (target === '_blank') {
-                                    window.open(href, '_blank');
+                            if (href && !href.startsWith('#') && target !== '_blank' && !href.startsWith('http://') && !href.startsWith('https://')) {
+                                if (window.smoothNavigate) {
+                                    window.smoothNavigate(href, card);
                                 } else {
                                     window.location.href = href;
                                 }
+                            } else if (href && target === '_blank') {
+                                window.open(href, '_blank');
                             }
                         }
                     }
@@ -565,4 +567,109 @@ function initDynamicCardInteractions() {
     bindCardSwitching('.projects-section', '.project-card');
     bindCardSwitching('.life-section', '.life-card');
     bindCardSwitching('#words', '.project-card');
+}
+
+/* ==========================================================================
+   PAGE TRANSITION SYSTEM (SMOOTH ROUTER STYLE ANIMATIONS)
+   ========================================================================== */
+function initPageTransitions() {
+    // 1. Ensure overlay element exists
+    let overlay = document.querySelector('.page-transition-overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'page-transition-overlay';
+        overlay.innerHTML = `
+            <div class="transition-brand">HIMMAT<span>.</span></div>
+            <div class="transition-bar"></div>
+        `;
+        document.body.appendChild(overlay);
+    }
+
+    // 2. Entrance Animation on Page Load
+    gsap.set(overlay, { display: 'flex', scaleY: 1, transformOrigin: 'top center' });
+    gsap.to(overlay, {
+        scaleY: 0,
+        duration: 0.55,
+        ease: 'power4.inOut',
+        delay: 0.05,
+        onComplete: () => {
+            gsap.set(overlay, { display: 'none' });
+        }
+    });
+
+    // Handle back button / bfcache restore
+    window.addEventListener('pageshow', (e) => {
+        if (e.persisted) {
+            gsap.set(overlay, { scaleY: 0, display: 'none' });
+        }
+    });
+
+    // 3. Staggered Entrance Animation for Article Body (on article pages)
+    const articleSection = document.querySelector('.article-section');
+    if (articleSection) {
+        const backBtn = articleSection.querySelector('.article-back-btn');
+        const tag = articleSection.querySelector('.article-tag');
+        const title = articleSection.querySelector('.article-main-title');
+        const meta = articleSection.querySelector('.article-meta-info');
+        const contentElems = articleSection.querySelectorAll('.article-body > p, .article-body > h2, .article-body > div, .article-body > hr');
+
+        const articleTL = gsap.timeline({ delay: 0.2 });
+
+        if (backBtn) articleTL.from(backBtn, { x: -30, opacity: 0, duration: 0.5, ease: 'power2.out' });
+        if (tag) articleTL.from(tag, { y: 15, opacity: 0, duration: 0.4, ease: 'power2.out' }, '-=0.3');
+        if (title) articleTL.from(title, { y: 30, opacity: 0, duration: 0.7, ease: 'power3.out' }, '-=0.3');
+        if (meta) articleTL.from(meta, { y: 15, opacity: 0, duration: 0.4, ease: 'power2.out' }, '-=0.4');
+        if (contentElems.length > 0) {
+            articleTL.from(contentElems, {
+                y: 25,
+                opacity: 0,
+                duration: 0.5,
+                stagger: 0.06,
+                ease: 'power2.out'
+            }, '-=0.3');
+        }
+    }
+
+    // 4. Smooth Router Navigation Helper
+    function smoothNavigate(href, cardElement = null) {
+        if (!href || href === '#' || href.startsWith('javascript:')) return;
+
+        // External links don't trigger full curtain
+        if (href.startsWith('http://') || href.startsWith('https://')) {
+            return;
+        }
+
+        if (cardElement) {
+            cardElement.classList.add('page-exit-anim');
+        }
+
+        gsap.set(overlay, { display: 'flex', scaleY: 0, transformOrigin: 'bottom center' });
+        gsap.to(overlay, {
+            scaleY: 1,
+            duration: 0.42,
+            ease: 'power4.inOut',
+            onComplete: () => {
+                window.location.href = href;
+            }
+        });
+    }
+
+    // Intercept internal link clicks for curtain transition
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a[href]');
+        if (!link) return;
+
+        const href = link.getAttribute('href');
+        const target = link.getAttribute('target');
+
+        if (!href || href.startsWith('#') || target === '_blank' || href.startsWith('http://') || href.startsWith('https://')) {
+            return;
+        }
+
+        e.preventDefault();
+        const parentCard = link.closest('.project-card, .life-card');
+        smoothNavigate(href, parentCard);
+    });
+
+    window.smoothNavigate = smoothNavigate;
 }

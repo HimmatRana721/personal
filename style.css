@@ -1516,4 +1516,66 @@ body.article-page .social-sidebar {
     transform: translateX(2px);
 }
 
+/* ==========================================================================
+   PAGE TRANSITION OVERLAY & ANIMATION SYSTEM
+   ========================================================================== */
+.page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    z-index: 100000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    overflow: hidden;
+    transform-origin: bottom center;
+}
+
+.transition-brand {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    color: #ffffff;
+    letter-spacing: 0.25em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    opacity: 0.95;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+}
+
+.transition-brand span {
+    color: var(--color-accent);
+}
+
+.transition-bar {
+    width: 80px;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    animation: transitionPulse 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes transitionPulse {
+    0% { width: 40px; opacity: 0.4; }
+    100% { width: 120px; opacity: 1; }
+}
+
+/* Card hover & page exit animation cue */
+.project-card, .life-card {
+    will-change: transform, border-color, box-shadow;
+}
+
+.life-card.page-exit-anim,
+.project-card.page-exit-anim {
+    transform: scale(0.96) translateY(-12px) !important;
+    opacity: 0.8;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 
