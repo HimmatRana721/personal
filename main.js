@@ -538,6 +538,24 @@ function initDynamicCardInteractions() {
 
                     // Set clicked card to active
                     card.classList.add('is-active');
+
+                    // If user clicked directly on an <a> tag, native link behavior takes place.
+                    // If user clicked elsewhere on the card surface, navigate to the card's target link.
+                    const clickedLink = e.target.closest('a');
+                    if (!clickedLink) {
+                        const cardLink = card.querySelector('a[href]');
+                        if (cardLink) {
+                            const href = cardLink.getAttribute('href');
+                            const target = cardLink.getAttribute('target');
+                            if (href && !href.startsWith('#')) {
+                                if (target === '_blank') {
+                                    window.open(href, '_blank');
+                                } else {
+                                    window.location.href = href;
+                                }
+                            }
+                        }
+                    }
                 });
             });
         });
