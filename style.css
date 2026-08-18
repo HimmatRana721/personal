@@ -1349,9 +1349,9 @@ body.article-page .social-sidebar {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #000000 !important;
+    background: #ffffff !important;
+    border: 1px solid #ffffff;
     padding: 10px 22px;
     border-radius: 30px;
     text-decoration: none;
@@ -1361,17 +1361,16 @@ body.article-page .social-sidebar {
     letter-spacing: 0.05em;
     text-transform: uppercase;
     margin-bottom: 40px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    backdrop-filter: blur(8px);
 }
 
 .article-back-btn:hover {
-    background: #ffffff;
-    color: #000000;
+    background: #e4e4e7 !important;
+    color: #000000 !important;
     border-color: #ffffff;
     transform: translateX(-6px);
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 28px rgba(255, 255, 255, 0.35);
 }
 
 .article-header {
