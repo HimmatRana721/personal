@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initProjectFilters();
     initFormInteractions();
+    initDynamicCardInteractions();
 
     // Run preloader timeline
     runPreloader();
@@ -250,7 +251,7 @@ function initProjectFilters() {
                     gsap.set(card, { display: 'flex' });
                     gsap.fromTo(card,
                         { scale: 0.85, opacity: 0 },
-                        { scale: 1, opacity: 1, duration: 0.5, ease: 'power2.out' }
+                        { scale: 1, opacity: 1, duration: 0.5, ease: 'power2.out', clearProps: 'transform' }
                     );
                 } else {
                     // Hide non-matching cards
@@ -432,7 +433,8 @@ function initScrollAnimations() {
         opacity: 0,
         duration: 1,
         stagger: 0.15,
-        ease: 'power3.out'
+        ease: 'power3.out',
+        clearProps: 'transform'
     });
 
     // 4. Story Timeline Animation
@@ -478,7 +480,8 @@ function initScrollAnimations() {
             y: 40,
             opacity: 0,
             duration: 1,
-            ease: 'power3.out'
+            ease: 'power3.out',
+            clearProps: 'transform'
         });
     });
 
@@ -502,4 +505,46 @@ function initScrollAnimations() {
         duration: 1,
         ease: 'power3.out'
     }, '-=0.8');
+}
+
+/* ==========================================================================
+   DYNAMIC CARD INTERACTION (PROJECTS & ARTICLES DYNAMIC SWITCHING)
+   ========================================================================== */
+function initDynamicCardInteractions() {
+    function bindCardSwitching(sectionSelector, cardSelector) {
+        const sections = document.querySelectorAll(sectionSelector);
+        sections.forEach(section => {
+            const cards = section.querySelectorAll(cardSelector);
+            if (!cards || cards.length === 0) return;
+
+            cards.forEach(card => {
+                // Dynamically update hover state
+                card.addEventListener('mouseenter', () => {
+                    cards.forEach(c => c.classList.remove('is-hovered'));
+                    card.classList.add('is-hovered');
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.classList.remove('is-hovered');
+                });
+
+                // Dynamically activate clicked card and deactivate all others in the section
+                card.addEventListener('click', (e) => {
+                    // Remove active and hover states from all sibling cards in section
+                    cards.forEach(c => {
+                        c.classList.remove('is-active');
+                        c.classList.remove('is-hovered');
+                    });
+
+                    // Set clicked card to active
+                    card.classList.add('is-active');
+                });
+            });
+        });
+    }
+
+    // Bind dynamic hover/click switching for Projects section and Articles section
+    bindCardSwitching('.projects-section', '.project-card');
+    bindCardSwitching('.life-section', '.life-card');
+    bindCardSwitching('#words', '.project-card');
 }
