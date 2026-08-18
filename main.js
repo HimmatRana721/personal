@@ -573,6 +573,8 @@ function initDynamicCardInteractions() {
    PAGE TRANSITION SYSTEM (SMOOTH ROUTER STYLE ANIMATIONS)
    ========================================================================== */
 function initPageTransitions() {
+    let isNavigating = false;
+
     // 1. Ensure overlay element exists
     let overlay = document.querySelector('.page-transition-overlay');
     if (!overlay) {
@@ -585,23 +587,27 @@ function initPageTransitions() {
         document.body.appendChild(overlay);
     }
 
+    // Reset overlay & navigation lock
+    function resetOverlayState() {
+        isNavigating = false;
+        gsap.set(overlay, { scaleY: 0, display: 'none' });
+    }
+
     // 2. Entrance Animation on Page Load
     gsap.set(overlay, { display: 'flex', scaleY: 1, transformOrigin: 'top center' });
     gsap.to(overlay, {
         scaleY: 0,
-        duration: 0.55,
+        duration: 0.5,
         ease: 'power4.inOut',
         delay: 0.05,
         onComplete: () => {
-            gsap.set(overlay, { display: 'none' });
+            resetOverlayState();
         }
     });
 
     // Handle back button / bfcache restore
     window.addEventListener('pageshow', (e) => {
-        if (e.persisted) {
-            gsap.set(overlay, { scaleY: 0, display: 'none' });
-        }
+        resetOverlayState();
     });
 
     // 3. Staggered Entrance Animation for Article Body (on article pages)
@@ -613,18 +619,32 @@ function initPageTransitions() {
         const meta = articleSection.querySelector('.article-meta-info');
         const contentElems = articleSection.querySelectorAll('.article-body > p, .article-body > h2, .article-body > div, .article-body > hr');
 
-        const articleTL = gsap.timeline({ delay: 0.2 });
+        // Force back button to be immediately visible
+        if (backBtn) {
+            gsap.set(backBtn, { display: 'inline-flex', opacity: 1, visibility: 'visible' });
+        }
 
-        if (backBtn) articleTL.from(backBtn, { x: -30, opacity: 0, duration: 0.5, ease: 'power2.out' });
-        if (tag) articleTL.from(tag, { y: 15, opacity: 0, duration: 0.4, ease: 'power2.out' }, '-=0.3');
-        if (title) articleTL.from(title, { y: 30, opacity: 0, duration: 0.7, ease: 'power3.out' }, '-=0.3');
+        const articleTL = gsap.timeline({
+            delay: 0.15,
+            onComplete: () => {
+                // Clear inline animation styles so elements are 100% visible and unblocked
+                if (backBtn) gsap.set(backBtn, { clearProps: 'all' });
+                if (tag) gsap.set(tag, { clearProps: 'all' });
+                if (title) gsap.set(title, { clearProps: 'all' });
+                if (meta) gsap.set(meta, { clearProps: 'all' });
+                if (contentElems.length > 0) gsap.set(contentElems, { clearProps: 'all' });
+            }
+        });
+
+        if (tag) articleTL.from(tag, { y: 15, opacity: 0, duration: 0.4, ease: 'power2.out' });
+        if (title) articleTL.from(title, { y: 25, opacity: 0, duration: 0.6, ease: 'power3.out' }, '-=0.3');
         if (meta) articleTL.from(meta, { y: 15, opacity: 0, duration: 0.4, ease: 'power2.out' }, '-=0.4');
         if (contentElems.length > 0) {
             articleTL.from(contentElems, {
-                y: 25,
+                y: 20,
                 opacity: 0,
-                duration: 0.5,
-                stagger: 0.06,
+                duration: 0.4,
+                stagger: 0.05,
                 ease: 'power2.out'
             }, '-=0.3');
         }
@@ -632,12 +652,15 @@ function initPageTransitions() {
 
     // 4. Smooth Router Navigation Helper
     function smoothNavigate(href, cardElement = null) {
-        if (!href || href === '#' || href.startsWith('javascript:')) return;
+        if (isNavigating || !href || href === '#' || href.startsWith('javascript:')) return;
 
         // External links don't trigger full curtain
         if (href.startsWith('http://') || href.startsWith('https://')) {
+            window.location.href = href;
             return;
         }
+
+        isNavigating = true;
 
         if (cardElement) {
             cardElement.classList.add('page-exit-anim');
@@ -646,8 +669,8 @@ function initPageTransitions() {
         gsap.set(overlay, { display: 'flex', scaleY: 0, transformOrigin: 'bottom center' });
         gsap.to(overlay, {
             scaleY: 1,
-            duration: 0.42,
-            ease: 'power4.inOut',
+            duration: 0.38,
+            ease: 'power3.inOut',
             onComplete: () => {
                 window.location.href = href;
             }
